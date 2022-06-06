@@ -48,6 +48,9 @@
                         The Net Ninja
                     </p>
                 </v-flex>
+                <v-flex class="mt-4 mb-3">
+                    <Popup />
+                </v-flex>
             </v-layout>
             <v-list
                 nav
@@ -74,7 +77,9 @@
 </template>
 
 <script>
+import Popup from './Popup.vue'
 export default {
+    components:{Popup},
     data(){
         return {
             drawer: false,
