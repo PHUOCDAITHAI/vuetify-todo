@@ -7,7 +7,49 @@
                 <span>Ninja</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn outlined color="grey">
+
+            <!-- dropdown menu -->
+            <!-- <v-menu>
+                <template v-slot:activator="{ on, attrs }">
+                    <v-btn v-bind="attrs" v-on="on" outlined color="grey" class="btn-border-none">
+                        <v-icon left>mdi-chevron-down</v-icon>
+                        <span>Menu</span>
+                    </v-btn>
+                    <v-list>
+                        <v-list-item
+                        v-for="(link, index) in links"
+                        :key="index" router :to="link.route"
+                        >
+                        <v-list-item-title>{{ link.text }}</v-list-item-title>
+                        </v-list-item>
+                    </v-list>
+                </template>
+            </v-menu> -->
+            <div class="text-center">
+                <v-menu offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                    <v-btn
+                        v-bind="attrs"
+                        v-on="on"
+                        class="btn-border-none"
+                        outlined
+                    >
+                    <v-icon left>mdi-chevron-down</v-icon>
+                    <span>Menu</span>
+                    </v-btn>
+                </template>
+                <v-list>
+                    <v-list-item
+                    v-for="(link, index) in links"
+                    :key="index" router :to="link.route"
+                    >
+                    <v-list-item-title>{{ link.text }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+                </v-menu>
+            </div>
+            <!-- End dropdown menu -->
+            <v-btn outlined color="grey" class="btn-border-none">
                 <span>Sign Out</span>
                 <v-icon right>mdi-exit-to-app</v-icon>
             </v-btn>
