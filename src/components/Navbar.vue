@@ -9,22 +9,6 @@
             <v-spacer></v-spacer>
 
             <!-- dropdown menu -->
-            <!-- <v-menu>
-                <template v-slot:activator="{ on, attrs }">
-                    <v-btn v-bind="attrs" v-on="on" outlined color="grey" class="btn-border-none">
-                        <v-icon left>mdi-chevron-down</v-icon>
-                        <span>Menu</span>
-                    </v-btn>
-                    <v-list>
-                        <v-list-item
-                        v-for="(link, index) in links"
-                        :key="index" router :to="link.route"
-                        >
-                        <v-list-item-title>{{ link.text }}</v-list-item-title>
-                        </v-list-item>
-                    </v-list>
-                </template>
-            </v-menu> -->
             <div class="text-center">
                 <v-menu offset-y>
                 <template v-slot:activator="{ on, attrs }">
