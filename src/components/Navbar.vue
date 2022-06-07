@@ -21,6 +21,7 @@
                         v-on="on"
                         class="btn-border-none"
                         outlined
+                        color="grey"
                     >
                     <v-icon left>mdi-chevron-down</v-icon>
                     <span>Menu</span>
