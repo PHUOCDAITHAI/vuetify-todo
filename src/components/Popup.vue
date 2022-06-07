@@ -19,9 +19,9 @@
         </v-card-title>
 
         <v-card-text>
-            <v-form class="px-3">
-                <v-text-field label="Title" v-model="title" prepend-icon="mdi-folder"></v-text-field>
-                <v-textarea label="Information" v-model="content" prepend-icon="mdi-pencil"></v-textarea>
+            <v-form class="px-3" ref="form">
+                <v-text-field label="Title" v-model="title" prepend-icon="mdi-folder" :rules="inputRules"></v-text-field>
+                <v-textarea label="Information" v-model="content" prepend-icon="mdi-pencil" :rules="inputRules"></v-textarea>
                 <v-menu
                     v-model="menu2"
                     :close-on-content-click="false"
@@ -37,6 +37,7 @@
                         prepend-icon="mdi-calendar"
                         v-bind="attrs"
                         v-on="on"
+                        :rules="inputRules"
                     ></v-text-field>
                     </template>
                     <v-date-picker
@@ -61,11 +62,16 @@ export default {
             due: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
             menu2: false,
             modal: false,
+            inputRules: [
+                v => v.length >= 3 || 'Minimum length is 3 characters'
+            ]
         }
     },
     methods: {
         submit(){
-            console.log(this.title, this.content);
+            if(this.$refs.form.validate()){
+                console.log(this.title, this.content);
+            }
         }
     }
 }
